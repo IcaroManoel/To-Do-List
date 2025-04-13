@@ -1,18 +1,21 @@
-import { Sequelize } from "sequelize";
+import { Sequelize, DataTypes } from 'sequelize';
+import sequelize from '../config/database.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
-const Usuario = Sequelize.define("Usuario", {
+const Usuario = sequelize.define("Usuario", {
 
 nome: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
   email: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false,
     unique: true,
   },
   senha: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false,
   },
 
