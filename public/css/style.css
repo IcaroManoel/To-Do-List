@@ -5,7 +5,6 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
     background-color: #E0E0E0;
     line-height: 1.6;
 }
@@ -13,10 +12,12 @@ body {
 p {
     color:#9E9E9E;
     font-size: 1.0rem;
+    font-family: 'Montserrat', sans-serif;
 }
 
 h1 {
-    color: #333333
+    color: #333333;
+    font-family: 'Special Gothic Expanded One', sans-serif;
 }
 
 .alert {
@@ -29,3 +30,21 @@ h1 {
     opacity: 0;
     transition: opacity 1s ease-out;
   }
+
+/* Estilo para alinhar ícone e título na mesma linha */
+.header {
+    display: flex;
+    align-items: center; /* Alinha verticalmente */
+}
+
+.header i {
+    font-size: 2.5rem; /* Tamanho do ícone */
+    margin-right: 15px; /* Espaço entre o ícone e o título */
+}
+
+.header h1 {
+    font-size: 2.5rem; /* Ajuste do tamanho do título */
+    margin: 0; /* Remover margem padrão do <h1> */
+}
+
+
