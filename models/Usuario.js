@@ -1,24 +1,22 @@
-import mongoose from "mongoose";
+import { Sequelize } from "sequelize";
 
-const UsuariosSchema = new mongoose.Schema({
-  nome: {
-    type: String,
-    required: true,
+const Usuario = Sequelize.define("Usuario", {
+
+nome: {
+    type: Sequelize.STRING,
+    allowNull: false
   },
   email: {
-    type: String,
-    required: true,
+    type: Sequelize.STRING,
+    allowNull: false,
     unique: true,
   },
   senha: {
-    type: String,
-    required: true,
+    type: Sequelize.STRING,
+    allowNull: false,
   },
-  dataCriacao: {
-    type: Date,
-    default: Date.now,
-  },
-});
 
-const Usuario = mongoose.model("Usuario", UsuariosSchema);
-export default Usuario;
+
+})
+
+export default Usuario

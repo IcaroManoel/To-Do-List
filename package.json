@@ -10,6 +10,7 @@
     "express-handlebars": "^8.0.1",
     "express-session": "^1.18.1",
     "mongoose": "^8.13.2",
+
     "passport": "^0.7.0",
     "passport-local": "^1.0.0"
   },
@@ -17,6 +18,12 @@
     "nodemon": "^3.1.9"
   },
   "scripts": {
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+
+    "mysql2": "^3.14.0",
+    "nodemon": "^3.1.9",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^6.37.7"
   }
 }
