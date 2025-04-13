@@ -50,11 +50,10 @@ app.use((req, res, next) => {
   next();
 });
 
-// Exemplo de rota
+//Rotas
+
 app.get('/', (req, res) => {
-  res.render('home', {
-    title: 'Página Inicial',
-  });
+    res.render("/partials/home")
 });
 
 // Iniciando o servidor
