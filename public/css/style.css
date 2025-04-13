@@ -19,3 +19,13 @@ h1 {
     color: #333333
 }
 
+.alert {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }

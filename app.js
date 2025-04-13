@@ -6,8 +6,9 @@ import passport from 'passport';
 import { engine } from 'express-handlebars';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import Usuario from './models/Usuario.js'; // Importando o modelo de usuário
+import Usuariosrouter from './routes/Usuario.js'; // Importando o modelo de usuário
 import path from 'path';
+import Usuario from './models/Usuario.js'; // Importando o modelo de usuário
 
 dotenv.config(); // Carrega as variáveis de ambiente
 
@@ -19,6 +20,13 @@ app.use(express.json());
 // Resolvendo o __dirname em ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+//Middleware Session
+app.use(session({
+    secret: process.env.SESSION_SECRET || 'kaioe...projetojuntoskeysecretsecreta',
+    resave: false,
+    saveUninitialized: true
+}));
 
 // Definir o motor de templates
 app.engine('handlebars', engine({
@@ -38,6 +46,14 @@ app.set('view options', { partialsDir: `${__dirname}/views/partials` });
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+//Usando Flash
+app.use(flash());
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    next();
+  });
+
 // Diretório público estático corrigido
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -45,6 +61,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
   res.render('home'); // Renderizando a view 'home.handlebars'
 });
+
+app.use("/usuarios", Usuariosrouter); // Rota para o modelo de usuário
 
 // Hosteando (Mas localhost hosteia só pro seu PC)
 const PORT = process.env.PORT || 4000;

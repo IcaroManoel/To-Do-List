@@ -10,7 +10,6 @@
     "express-handlebars": "^8.0.1",
     "express-session": "^1.18.1",
     "mongoose": "^8.13.2",
-
     "passport": "^0.7.0",
     "passport-local": "^1.0.0"
   },
@@ -19,11 +18,26 @@
   },
   "scripts": {
     "dev": "nodemon app.js",
-
     "mysql2": "^3.14.0",
     "nodemon": "^3.1.9",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
     "sequelize": "^6.37.7"
-  }
+  },
+  "name": "projeto",
+  "version": "1.0.0",
+  "description": "Gerencie suas tarefas com estilo e organização! Este projeto é um sistema completo de lista de tarefas, desenvolvido com Node.js e Express, com evolução de funcionalidades divididas em versões – desde o básico até recursos avançados como filtros, etiquetas, uploads, notificações e PWA.",
+  "main": "app.js",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IcaroManoel/opTask.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IcaroManoel/opTask/issues"
+  },
+  "homepage": "https://github.com/IcaroManoel/opTask#readme"
 }
