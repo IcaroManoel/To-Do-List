@@ -46,10 +46,6 @@ const hbs = create({
 app.engine('handlebars', hbs.engine); // Definir o motor de templates
 app.set('view engine', 'handlebars');
 
-app.get('/', (req, res) => {
-  res.render('home');  // Vai renderizar o template "home.handlebars"
-})
-
 // Rota principal
 app.get('/', (req, res) => {
   res.render('home'); // Renderizando a view 'home.handlebars'
