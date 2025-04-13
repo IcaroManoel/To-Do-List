@@ -35,15 +35,18 @@ app.set('views', `${__dirname}/views`);
 app.set('view options', { partialsDir: `${__dirname}/views/partials` });
 
 //Body-Parser
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// Diretório público estático corrigido
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Rota principal
 app.get('/', (req, res) => {
   res.render('home'); // Renderizando a view 'home.handlebars'
 });
 
-//Hosteando (Mas localhost hosteia so pro seu pc)
+// Hosteando (Mas localhost hosteia só pro seu PC)
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
