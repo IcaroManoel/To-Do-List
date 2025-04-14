@@ -1,3 +1,4 @@
+/* Base */
 * {
     margin: 0;
     padding: 0;
@@ -5,69 +6,175 @@
 }
 
 body {
-    background-color: #E0E0E0;
-    line-height: 1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #bbe4ee;
 }
 
-p {
-    color:#9E9E9E;
-    font-size: 1.0rem;
-    font-family: 'Montserrat', sans-serif;
+/* Estrutura Principal */
+.main {
+    padding: 30px;
+    margin: 0 auto;
+    max-width: 1200px; /* Limita a largura */
+    height: auto;
 }
 
-h1 {
-    color: #333333;
-    font-family: 'Lato', sans-serif;
-}
-
-.alert {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.fade-out {
-    opacity: 0;
-    transition: opacity 1s ease-out;
-  }
-
-/* Estilo para alinhar ícone e título na mesma linha */
-.header {
+.headernav {
     display: flex;
-    align-items: center; /* Alinha verticalmente */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: #000000;
+}
+
+.headernav i {
+    margin-right: 0.5rem;
+}
+
+.headernav h1 {
+    font-size: 2.0rem;
+    color: #3b3e6b;
+    margin-right: 1.9rem;
+}
+
+/* Header */
+.header {
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
 .header i {
-    font-size: 2.5rem; /* Tamanho do ícone */
-    margin-right: 15px; /* Espaço entre o ícone e o título */
-}
-
-.header h1 {
-    font-size: 2.5rem; /* Ajuste do tamanho do título */
-    margin: 0; /* Remover margem padrão do <h1> */
-    font-family: 'Kanit', sans-serif;
-}
-
-.headerop {
-    display: flex;
-    align-items: center; /* Alinha verticalmente */
-}
-
-.headerop i {
-    font-size: 2.5rem; /* Tamanho do ícone */
-    margin-right: 15px; /* Espaço entre o ícone e o título */
+    margin-top: -0.7rem;
+    margin-right: 0.7rem;
 }
 
 .headerop h1 {
-    font-size: 2.5rem; /* Ajuste do tamanho do título */
-    margin: 0; /* Remover margem padrão do <h1> */
-    font-family: 'Special Gothic Expanded One', sans-serif
+    font-size: 3rem;
+
 }
 
-.funcionalidades-list {
+/* Descrição */
+.descricao {
+    font-size: 1.3rem;
+    margin-top: 1rem;
+}
+
+/* Botões */
+.btn-comecar {
+    width: 100%;
+    padding: 10px;
+    background-color: #3b3e6b;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
     font-size: 1.1rem;
 }
 
-.technology-item {
-    font-size: 1.1rem
+.ler-mais {
+    display: block;
+    margin-top: 1.1rem;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(59, 62, 107);
+}
+
+/* Cards */
+.card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.card-funcionalidades,
+.card-tecnologias {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-funcionalidades strong, i, p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+}
+
+.funcionalidades-list {
+    display: flex;
+    flex-direction: row;;
+    gap: 0.9rem;
+}
+
+.funcionalidades,
+.tecno {
+    padding: 30px;
+}
+
+/* Tecnologias */
+.technologies-list .technology-item {
+    font-size: 1.1rem;
+    gap: 0.3rem;
+}
+
+/* Media Queries para Responsividade */
+
+/* Para telas pequenas (Mobile) */
+@media (max-width: 767px) {
+    .header h1 {
+        font-size: 2.8rem;
+    }
+
+    .descricao {
+        font-size: 1.1rem;
+    }
+
+    .btn-comecar {
+        padding: 8px;
+        font-size: 1rem;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .card-funcionalidades,
+    .card-tecnologias {
+        padding: 15px;
+    }
+
+    .headerop h1 {
+        font-size: 3.0rem;
+    }
+}
+
+/* Para telas médias (Tablets e acima) */
+@media (min-width: 768px) {
+    .main {
+        width: 90%;
+    }
+
+    .headerop h1 {
+        font-size: 3.5rem;
+    }
+
+    .descricao {
+        font-size: 1.5rem;
+    }
+}
+
+/* Para telas grandes (Desktop) */
+@media (min-width: 1024px) {
+    .main {
+        width: 80%;
+    }
+
+    .headerop h1 {
+        font-size: 4rem;
+    }
+
+    .descricao {
+        font-size: 1.7rem;
+    }
 }

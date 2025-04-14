@@ -1,64 +1,86 @@
-<div class="card" style="border-radius: 70px;">
-<section class="main" style="padding: 40px; background-color: #bbe4ee">
-    <!-- Ícone e Título lado a lado -->
-    <div class="headerop">
-        <i class="bi bi-bar-chart-fill"></i>
-        <h1>OpTask</h1>
-    </div>
-    
-    <p style="font-size: 1.3rem;" class="mt-3">
-        O opTask é um site focado na organização do dia a dia, permitindo que os usuários criem, editem, excluam e marquem tarefas como concluídas. 
-        Com uma interface simples e intuitiva, é ideal para quem precisa se organizar em estudos, trabalho ou atividades pessoais. 
-        O site está em constante evolução e trará novos recursos, como filtros, etiquetas e estatísticas, para aprimorar a experiência do usuário.
-    </p>
-    <hr>
-     <a href="usuarios/registro"><button style="width: 100%; padding: 10px" class="btn btn-success">Começar agora</button></a>
-    
-    <a href="" style="text-decoration: none; font-weight: bold;"><p class="mt-3" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:rgb(59, 62, 107)">Ler mais</p></a>
-
-</section>
-</div>
-
-<div class="card" style="background-color: #caf3f8; padding: 20px">
-    <section class="funcionalidades" style="padding: 30px;">
-        <div class="header">
-        <i class="bi bi-clipboard-fill" style="font-size: 2.0rem;"></i><h1 style="font-size: 2.0rem;">Funcionalidades</h1>
+<div class="card">
+    <section class="main">
+        <div class="headerop">
+            <h1>Anote, controle e conclua.</h1>
         </div>
-        <div class="funcionalidades-list mt-5">
-            <i class="bi bi-pencil-square"></i> - <strong style="font-size: 1.3rem">Adicionar Tarefas</strong> - Crie tarefas quando quiser <br> <br>
-            <i class="bi bi-pencil"></i> - <strong style="font-size: 1.3rem">Editar tarefas</strong> - Edite-as quando precisar<br> <br>
-            <i class="bi bi-trash"></i> - <strong style="font-size: 1.3rem">Excluir tarefas</strong> - Exclua as tarefas em um clique<br> <br> 
-            <i class="bi bi-calendar-check"></i> - <strong style="font-size: 1.3rem">Organização diária</strong> - Organize seu dia com eficiência<br> <br>
-            <i class="bi bi-search"></i> - <strong style="font-size: 1.3rem">Filtros por categoria ou data</strong> - Pesquise as tarefas facilmente<br> <br>
-            <i class="bi bi-bar-chart-fill"></i> - <strong style="font-size: 1.3rem">Estatísticas de produtividade</strong> - Veja sua produtividade!
-        </div>
+        
+        <p class="descricao">
+            O opTask é um site focado na organização do dia a dia, permitindo que os usuários criem, editem, excluam e marquem tarefas como concluídas. 
+            Com uma interface simples e intuitiva, é ideal para quem precisa se organizar em estudos, trabalho ou atividades pessoais. 
+            O site está em constante evolução e trará novos recursos, como filtros, etiquetas e estatísticas, para aprimorar a experiência do usuário.
+        </p>
+        <hr>
+        <a href="usuarios/registro" class="btn btn-success btn-comecar">Começar agora</a>
+        
+        <a href="" class="ler-mais"><p>Ler mais</p></a>
     </section>
 </div>
 
-<div class="card" style="background-color: #7ef1ec; padding: 20px">
-<section class="tecno" style="padding: 30px;">
-    <div class="header">
-    <i class="bi bi-gear"></i><h1 style="font-size: 2.0rem;">Tecnologias</h1>
-    </div>
-    <div class="technologies-list mt-3">
+<div class="card card-funcionalidades">
+    <section class="funcionalidades">
+        <div class="header">
+            <h1>Organize suas tarefas.</h1>
+        </div>
+        <p>Crie tarefas, edite-as, exclua, pesquise quantas você precisar, organize seu dia, use OpTask.</p>
+        <div class="card funcionalidades-list">
+  <div class="item">
+    <i class="bi bi-person-circle"></i> 
+    <span><strong>Cadastro de usuários:</strong> <p>Crie sua conta e comece a usar o site</p></span>
+  </div>
+  <div class="item">
+    <i class="bi bi-pencil-square"></i>
+    <span><strong>Adicionar Tarefas:</strong> <p>Crie tarefas quando quiser</span></p>
+  </div>
+  <div class="item">
+    <i class="bi bi-pencil"></i>
+    <span><strong>Editar tarefas:</strong> <p>Edite-as quando precisar</span></p>
+  </div>
+  <div class="item">
+    <i class="bi bi-trash"></i>
+    <span><strong>Excluir tarefas:</strong> <p>Exclua as tarefas em um clique</span></p>
+  </div>
+  <div class="item">
+    <i class="bi bi-calendar-check"></i>
+    <span><strong>Organização diária:</strong> <p>Organize seu dia com eficiência</span></p>
+  </div>
+  <div class="item">
+    <i class="bi bi-search"></i>
+    <span><strong>Filtros:</strong> <p>Pesquise por categoria ou data facilmente</span></p>
+  </div>
+  <div class="item">
+    <i class="bi bi-bar-chart-fill"></i>
+    <span><strong>Estatísticas:</strong> <p>Veja sua produtividade!</span></p>
+  </div>
+</div>
+    </section>
+</div>
+
+
+
+<div class="card card-tecnologias">
+    <section class="tecno">
+        <div class="header">
+            <h1>Tecnologias</h1>
+        </div>
+        <div class="card technologies-list">
             <div class="technology-item">
                 <i class="bi bi-bootstrap"></i> <strong>Bootstrap</strong> - Framework CSS para design responsivo.
-            </div> <br>
+            </div><br>
             <div class="technology-item">
                 <i class="bi bi-window"></i> <strong>Node.js</strong> - Plataforma para o backend do site.
-            </div> <br>
+            </div><br>
             <div class="technology-item">
-                <i class="bi bi-database"></i> <strong>MongoDB</strong> - Banco de dados NoSQL para armazenar dados de tarefas.
-            </div> <br>
+                <i class="bi bi-database"></i> <strong>MySql</strong> - Banco de dados para armazenar dados de tarefas.
+            </div><br>
             <div class="technology-item">
                 <i class="bi bi-code"></i> <strong>JavaScript</strong> - Linguagem de programação para interação e funcionalidades dinâmicas.
-            </div> <br>
+            </div><br>
             <div class="technology-item">
                 <i class="bi bi-file-earmark-code"></i> <strong>Express.js</strong> - Framework para construção de APIs no backend.
-            </div> <br>
+            </div><br>
             <div class="technology-item">
                 <i class="bi bi-palette"></i> <strong>CSS</strong> - Para estilização e criação de layouts atraentes e responsivos.
             </div>
         </div>
-        </div>
-</section>
+    </section>
+</div>
