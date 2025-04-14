@@ -61,6 +61,7 @@ h1 {
 .headerop h1 {
     font-size: 2.5rem; /* Ajuste do tamanho do título */
     margin: 0; /* Remover margem padrão do <h1> */
+    font-family: 'Special Gothic Expanded One', sans-serif
 }
 
 .funcionalidades-list {
