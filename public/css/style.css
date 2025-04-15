@@ -38,13 +38,11 @@ body {
 /* Header */
 .header {
     font-size: 2rem;
-    margin-bottom: 1rem;
 }
 
 
 .headerop h1 {
     font-size: 3rem;
-
 }
 
 /* Descrição */
@@ -132,12 +130,17 @@ body {
     text-align: center;
 }
 
+
 /* Media Queries para Responsividade */
 
 /* Para telas pequenas (Mobile) */
 @media (max-width: 767px) {
     .header h1 {
-        font-size: 2.7rem;
+        font-size: 2.5rem;
+    }
+
+    .funcionalidades-header strong {
+        font-size: 2.0rem;
     }
 
     .descricao {
@@ -176,6 +179,14 @@ body {
 
     .descricao {
         font-size: 1.5rem;
+    }
+
+    .funcionalidades-header strong {
+        font-size: 2.5rem;
+    }
+
+    .header h1 {
+        font-size: 2.5rem;
     }
 }
 
@@ -242,8 +253,8 @@ body {
         font-size: 2.1rem;
     }
 
-    .technologies-list p, i {
-        
+    .funcionalidades-header strong {
+        font-size: 3.5rem;
     }
     
 
@@ -253,8 +264,7 @@ body {
 @media (min-width: 1024px) {
     .main {
         padding: 30px;
-        max-width: 1200px; /* Limita a largura */
-        height: 76vh; /* Faz a altura ocupar toda a tela */
+        height: 82vh; /* Faz a altura ocupar toda a tela */
         text-align: center;
         margin-left: auto;
         margin-right: auto;
@@ -265,10 +275,12 @@ body {
 
     .headernav {
         height: 1.3rem;
+        padding: 10px 10px;
     }
     .headernav h1 {
         font-size: 1.7rem;
         margin-right: 1.2rem;
+        margin-top: 0.3rem;
     }
 
     .headernav i {
@@ -277,7 +289,9 @@ body {
 
     .nav-item {
         font-size: 1.1rem;
-        margin-top: -0.3rem;
+        margin-top: -0.1rem;
+        justify-content: flex-start;
+        gap: 2rem; /* adiciona espaçamento manual entre os itens */
     }
 
     .headerop h1 {
@@ -310,7 +324,7 @@ body {
         font-size: 1.2rem;
     }
 
-    .funcionalidades strong {
+    .funcionalidades-list strong {
         font-size: 1.7rem;
     }
 
@@ -318,7 +332,7 @@ body {
         font-size: 2.1rem;
     }
 
-    .technologies-list p, i {
-        
+    .funcionalidades-header strong {
+        font-size: 2.8rem;
     }
 }
