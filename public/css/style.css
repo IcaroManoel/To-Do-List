@@ -35,6 +35,13 @@ body {
     margin-right: 1.9rem;
 }
 
+.navbar-nav {
+    display: flex;
+    justify-content: flex-end; /* Alinha os itens à direita */
+    width: 100%;
+    gap: 0.4rem; /* Espaçamento entre os itens */
+  }
+
 /* Header */
 .header {
     font-size: 2rem;
