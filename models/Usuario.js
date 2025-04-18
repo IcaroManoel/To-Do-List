@@ -1,25 +1,23 @@
-import { DataTypes } from 'sequelize';
-import sequelize from '../config/database.js';
-import dotenv from 'dotenv';
-dotenv.config();
+import mongoose from 'mongoose';
 
-const Usuario = sequelize.define("Usuario", {
-
-nome: {
-    type: DataTypes.STRING,
-    allowNull: false
+const usuarioSchema = new mongoose.Schema({
+  nome: {
+    type: String,
+    required: true,
   },
   email: {
-    type: DataTypes.STRING,
-    allowNull: false,
+    type: String,
+    required: true,
     unique: true,
   },
   senha: {
-    type: DataTypes.STRING,
-    allowNull: false,
+    type: String,
+    required: true,
   },
+}, {
+  timestamps: true // cria os campos createdAt e updatedAt automaticamente
+});
 
-
-})
+const Usuario = mongoose.model('Usuario', usuarioSchema);
 
 export default Usuario;

@@ -9,6 +9,11 @@ import { dirname } from 'path';
 import Usuariosrouter from './routes/Usuario.js'; // Importando o modelo de usuário
 import path from 'path';
 import Usuario from './models/Usuario.js'; // Importando o modelo de usuário
+import connectDB from './config/database.js';
+connectDB();
+import configurarPassport from "./config/auth.js"; // ajusta o caminho se tiver diferente
+
+
 
 dotenv.config(); // Carrega as variáveis de ambiente
 
@@ -21,20 +26,30 @@ app.use(express.json());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-//Middleware Session
-app.use(session({
-    secret: process.env.SESSION_SECRET || 'kaioe...projetojuntoskeysecretsecreta',
-    resave: false,
-    saveUninitialized: true
-}));
+app.use(
+  session({
+    secret: "seuSegredo",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
 
+// Passport
+configurarPassport(passport);
+app.use(passport.initialize());
+app.use(passport.session());
 
+// Flash
 app.use(flash());
+
+// Middleware global para mensagens
 app.use((req, res, next) => {
-    res.locals.success_msg = req.flash('success_msg');
-    res.locals.error_msg = req.flash('error_msg');
-    next();
-  });
+  res.locals.success_msg = req.flash("success_msg");
+  res.locals.error_msg = req.flash("error_msg");
+  res.locals.error = req.flash("error"); // usado pelo passport
+  res.locals.userauthenticated = req.isAuthenticated()
+  next();
+});
 
 // Definir o motor de templates
 app.engine('handlebars', engine({

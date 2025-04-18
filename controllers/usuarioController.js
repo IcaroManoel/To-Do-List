@@ -1,11 +1,13 @@
 import bcrypt from "bcryptjs";
+import passport from "passport";
+import { Strategy as LocalStrategy } from "passport-local";
 import Usuario from "../models/Usuario.js";
 
 // Função para registrar o usuário
 export function registrarUsuario(req, res) {
-    var erros = [];
+    const erros = [];
 
-    // Validação de dados do formulário
+    // Validação básica
     if (!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null) {
         erros.push({ texto: "Nome inválido." });
     }
@@ -23,39 +25,36 @@ export function registrarUsuario(req, res) {
     }
 
     if (erros.length > 0) {
-        res.render("usuarios/register", { erros: erros });
+        res.render("usuarios/register", { erros });
     } else {
-        // Verificando se o email já existe no banco (usando Sequelize)
-        Usuario.findOne({ where: { email: req.body.email } }).then((usuario) => {
-            if (usuario) {
-                req.flash("error_msg", "Já existe uma conta com esse email.");
-                res.redirect("/usuarios/registro");
-            } else {
-                // Criando novo usuário
+        // Agora usando Mongoose
+        Usuario.findOne({ email: req.body.email })
+            .then((usuario) => {
+                if (usuario) {
+                    req.flash("error_msg", "Já existe uma conta com esse email.");
+                    return res.redirect("/usuarios/registro");
+                }
+
                 const novoUsuario = new Usuario({
                     nome: req.body.nome,
                     email: req.body.email,
                     senha: req.body.senha,
                 });
 
-                // Gerando salt para criptografar a senha
                 bcrypt.genSalt(10, (erro, salt) => {
                     if (erro) {
                         req.flash("error_msg", "Erro ao gerar o salt.");
                         return res.redirect("/usuarios/registro");
                     }
 
-                    // Criptografando a senha
                     bcrypt.hash(novoUsuario.senha, salt, (erro, hash) => {
                         if (erro) {
-                            req.flash("error_msg", "Houve um erro durante o salvamento do usuário.");
+                            req.flash("error_msg", "Erro ao criptografar a senha.");
                             return res.redirect("/usuarios/registro");
                         }
 
-                        // Atribuindo o hash à senha
                         novoUsuario.senha = hash;
 
-                        // Salvando o usuário no banco
                         novoUsuario.save()
                             .then(() => {
                                 req.flash("success_msg", "Usuário criado com sucesso!");
@@ -63,18 +62,36 @@ export function registrarUsuario(req, res) {
                             })
                             .catch((err) => {
                                 console.log(err);
-                                req.flash("error_msg", "Erro ao criar o usuário, tente novamente.");
+                                req.flash("error_msg", "Erro ao criar o usuário.");
                                 res.redirect("/usuarios/registro");
                             });
                     });
                 });
-            }
-        }).catch((err) => {
-            console.log(err);
-            req.flash("error_msg", "Erro interno ao verificar o email.");
-            res.redirect("/usuarios/registro");
-        });
+            })
+            .catch((err) => {
+                console.log(err);
+                req.flash("error_msg", "Erro interno ao verificar o email.");
+                res.redirect("/usuarios/registro");
+            });
     }
 }
 
-    
+export function loginUsuario(req, res, next) {
+    if (req.isAuthenticated()) {
+        console.log('Usuário já autenticado, redirecionando para o dashboard...');
+        return res.redirect("/usuarios/dashboard");  // Redireciona caso já esteja logado
+    } 
+
+    // Caso o usuário não esteja autenticado, vai continuar para o processo de autenticação
+    passport.authenticate("local", {
+        successRedirect: "/usuarios/dashboard",
+        failureRedirect: "/usuarios/login",
+        failureFlash: true,
+    })(req, res, next);
+}
+
+
+
+
+
+

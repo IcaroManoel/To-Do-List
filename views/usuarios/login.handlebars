@@ -1,0 +1,31 @@
+{{#if error}}<div class="alert alert-danger mt-2">{{error}}</div>{{/if}}
+
+
+<style>
+    body {
+        background-color: #333333;
+    }
+</style>
+
+<div class="container">
+    <div class="card logincard">
+        <div class="card-body">
+            <h1>Login</h1>
+            <hr>
+            <form action="/usuarios/login" method="post">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="senha" class="form-label">Senha:</label>
+                    <input type="password" name="senha" id="senha" placeholder="Senha" class="form-control" required>
+                </div>
+
+                <button type="submit" class="btn btn-success">Entrar</button>
+            </form>
+        </div>
+    </div>
+</div>
+

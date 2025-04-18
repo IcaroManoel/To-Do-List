@@ -1,22 +1,17 @@
-import { Sequelize, DataTypes } from 'sequelize';
+import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const sequelize = new Sequelize(
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASSWORD,
-    {
-      host: process.env.DB_HOST,
-      dialect: process.env.DB_DIALECT
-    }
-  );
-  
+async function connectDB() {
   try {
-    await sequelize.authenticate();
-    console.log('🔥 Conectado ao MySQL com sucesso!');
+    await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+    console.log('🔥 Conectado ao MongoDB com sucesso!');
   } catch (error) {
-    console.error('🚨 Erro ao conectar ao MySQL:', error);
+    console.error('🚨 Erro ao conectar ao MongoDB:', error);
   }
-  
-  export default sequelize;
+}
+
+export default connectDB;
